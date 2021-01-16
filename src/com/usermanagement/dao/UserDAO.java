@@ -30,11 +30,12 @@ public class UserDAO {
 			 
 			ResultSet rs= callablestatement.executeQuery();
 			while( rs.next()) {
+				int userId= rs.getInt("userId");
 				String lastname= rs.getString("lastname");
 				String firstname= rs.getString("firstname");
 				String email=  rs.getString("email");
 				String country=  rs.getString("country");
-				int userId= rs.getInt("userId");
+				
 				
 				User user = new User(userId,lastname,firstname,email,country);
 				allUser.add(user);

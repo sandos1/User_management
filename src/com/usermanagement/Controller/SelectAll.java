@@ -13,40 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 import com.usermanagement.User_Model.User;
 import com.usermanagement.dao.UserDAO;
 
-/**
- * Servlet implementation class SelectAll
- */
-@WebServlet("/SelectAll")
-public class SelectAll extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	UserDAO userDAO ;
-    
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SelectAll() {
-        super();
-        this.userDAO = new UserDAO();
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
+@WebServlet("/listUser")
+public class SelectAll extends HttpServlet {
+	
+	
+	private static final long serialVersionUID = 1L;
+	
+	UserDAO dao = new UserDAO();
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<User> listuser = userDAO.getAllUsers();
-		request.setAttribute("listUser", listuser);
-		RequestDispatcher rq = request.getRequestDispatcher("user-list.jsp");
+		response.setContentType("text/html");
+		List<User> userlist = dao.getAllUsers();
+		request.setAttribute("user", userlist);
+		RequestDispatcher rq = request.getRequestDispatcher("/UserList.jsp");
 		rq.forward(request, response);
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
