@@ -3,11 +3,11 @@
   <display-name>User_management</display-name>
   
   <servlet>
-  	<servlet-name>Controller</servlet-name>
-  	<servlet-class>com.usermanagement.Controller.Controller</servlet-class>
+  	<servlet-name>SelectAll</servlet-name>
+  	<servlet-class>com.usermanagement.Controller.SelectAll</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Controller</servlet-name>
+  	<servlet-name>SelectAll</servlet-name>
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
